@@ -2,12 +2,9 @@
 Chess game
 """
 from collections import namedtuple
-import pprint
 
 WHITE = "WHITE"
 BLACK = "BLACK"
-
-pp = pprint.PrettyPrinter(indent=4)
 
 Field = namedtuple('Field', ['x', 'y'])
 
@@ -23,7 +20,10 @@ class Chessboard(object):
         return Field(x, y)
 
     def display(self):
-        pp.pprint(self.fields)
+        for j in range(7, -1, -1):
+            for i in range(8):
+                print("[ ]", end="")
+            print("")
 
 
 class Piece(object):
@@ -127,3 +127,4 @@ if __name__ == "__main__":
     print("Black pieces:")
     for piece in black_pieces:
         piece.display()
+
