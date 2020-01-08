@@ -19,17 +19,21 @@ class Chessboard(object):
     def initialize_field(x, y):
         return Field(x, y)
 
-    def display(self):
+    def display(self, piece=" "):
+
         for j in range(7, -1, -1):
             for i in range(8):
-                print("[ ]", end="")
-            print("")
+                print(f"[{piece}]", end="")
+            print(f" | {j + 1}")
+        print("------------------------")
+        print("[A][B][C][D][E][F][G][H]")
 
 
 class Piece(object):
 
-    def __init__(self, color):
+    def __init__(self, color, field):
         self.color = color
+        self.field = field
         self.graphic_representation = None
 
     def display(self):
